@@ -1,0 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shape;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author S346680274
+ */
+import java.lang.Math;
+        
+public class Circle extends Shape{
+
+    final double pi = Math.PI;
+    
+    @Override
+    public void userInput(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the dimensions required!");
+        this.width=checkValue("Radius: ");}
+    
+    @Override
+    public double area (){
+        return pi * Math.pow(this.width,2); //calculates area of a circle
+    }
+    
+    @Override
+    public double perimeter(){
+        return pi*this.width*2;
+    }
+    
