@@ -1,0 +1,128 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shape;  
+
+/**
+ *
+ * @author S346680274
+ *///import java.lang.Math.*;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Shape {
+    double area;
+    double perimeter;
+    double length;
+    double width;
+    double side1;
+    double side2;
+    double side3;
+    
+        public double checkValue(String statement){
+        System.out.print(statement);
+        Scanner input = new Scanner(System.in);
+        double num1;
+        while (true){
+            try{
+                num1=input.nextDouble();
+                if (num1>0){
+                    break;
+                }
+                else{
+                    System.out.print("Please enter a positive number!");
+                }
+            }
+            catch (InputMismatchException err){
+                input.next();
+                System.out.print("The value entered is not a number. Please try again."+statement);
+            }
+        }
+        return num1;
+    }
+        public void userInput(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the dimensions");
+        this.width=checkValue("width: ");
+        this.length=checkValue("length: ");    
+    }
+      
+
+
+    public double area(){
+        return (this.width*this.length);
+    };
+    
+   public double perimeter(){
+       return (2*(this.width+this.length));
+   }
+  
+        public static void CallShape(){
+            }
+            
+            
+   
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here 
+         Scanner input = new Scanner(System.in);
+         System.out.println("WELCOME! This is a program to calculate the area and perimeter of 2D shapes with any dimensions that you enter.");
+         System.out.println("*NOTE*: DO ENTER ALL THE DIMENSIONS IN THE SAME UNITS. THIS PROGRAM WILL ONLY CALCULATE THE FINAL AREA AND PERIMETER. IT WILL NOT CONVERT ANY UNITS FOR CALCULATING PURPOSES.");
+         while (true){
+            System.out.println("\nThese are the shapes available:\n a.Circle\n b.Rectangle\n c.Square \n d.Triangle.");
+            System.out.println("\nWhich shape would you like to find the area and perimeter of?");
+            String ans=input.next();
+            switch (ans){
+                case ("a"):
+                    System.out.println("\nCalculating the area and the circumference of the circle...");
+                    Shape c = new Circle();
+                    c.userInput();
+                    System.out.println("\nThis is the area of the circle with the dimensions you entered:"+c.area());
+                    System.out.println("\nThis is the circumference of the circle with the dimensions you entered:"+c.perimeter());
+                    break;
+                case ("b"):
+                        System.out.println("\nCalculating the area and perimeter of the rectangle... ");
+                        Shape r = new Shape();
+                        r.userInput();
+                        System.out.println("\nThis is the area of the rectangle with the dimensions you entered:"+r.area());
+                        System.out.println("\nThis is the circumference of the rectangle with the dimensions you entered:"+r.perimeter());
+                        break;
+                case ("c"):
+                        System.out.println("\nCalculating the area and perimeter of the Sqaure..");
+                        Shape s = new Square();
+                        s.userInput();
+                        System.out.println("\nThis is the area of the square with the dimensions you entered:"+s.area());
+                        System.out.println("\nThis is the circumference of the square with the dimensions you entered:"+s.perimeter());
+                        break;
+                case ("d"):
+                        System.out.println("\nCalculating the area and perimeter of a Triangle.. ");
+                        Shape t = new Triangle();
+                        t.userInput();
+                        System.out.println("\nThis is the area of the triangle with the dimensions you entered:"+t.area());
+                        System.out.println("\nThis is the circumference of the triangle with the dimensions you entered:"+t.perimeter());
+                        break;
+                default:
+                        System.out.println("\nInvalid Option :(");
+                        continue;
+                                   
+            }
+         System.out.println("\nWould you like to find the area and perimeter of another shape?");
+         String choice=input.next();
+         if (choice.equalsIgnoreCase("yes") || choice.equalsIgnoreCase("y") || choice.equalsIgnoreCase("Y") || choice.equalsIgnoreCase("YES")){
+                continue;
+            }
+        else {
+                System.out.println("\nDo come again!");
+                        break;
+         }
+         
+
+         
+         
+    }
+    
+}}
