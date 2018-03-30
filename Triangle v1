@@ -1,0 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shape;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author s346680274
+ */
+public class Triangle extends Shape{
+    
+        double width=0;
+        double length=0;
+        double side1=0;
+        double side2=0;
+        double side3=0;
+        
+    @Override
+    public void userInput(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the dimensions required:");
+        this.width=checkValue("base: ");
+        this.length=checkValue("height:");  
+        
+       
+    public void userInput2(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter sides of the triangle:");
+        this.side1=checkValue("side 1: ");
+        this.side2=checkValue("side 2:");
+        this.side3=checkValue("side 3");}   
+    @Override
+    public double area (){
+        return 0.5*this.width*this.length; //calculates area of a circle
+    }
+    
+    @Override
+    public double perimeter(){
+        return this.side1+this.side2+this.side3;
+    }
+    
+    
+}
