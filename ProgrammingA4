@@ -1,0 +1,41 @@
+package programming.exercises;
+import java.util.Scanner;
+
+// @author Manasi
+
+public class Program4 {
+        public static void main(String[] args) {
+        String[] my_list= {"A","B"}; // Just for testing purposes. 
+        while (true){
+            Scanner input= new Scanner(System.in);
+            System.out.println("Please enter the item you want to search within the list:");
+            String item = input.next();
+            int position = getIndexOf(my_list, item);
+            if (position!= -1){ //If the index position has been found
+                System.out.println("Your item has been found at:"+ position);
+                System.out.println("Do you wish to try again? (Yes/No)");
+                String ans = input.next();
+                if ("Yes".equals(ans) || "Y".equals(ans) || "yes".equals(ans) || "y".equals(ans)){
+                    continue;
+                    }
+                else{
+                    System.out.println("Have a nice day!");
+                    break;
+                    }}
+            else{ //If index position has not been found
+                System.out.println("This item is not found in the list");
+                System.out.println("Do you wish to try again?(Yes/No)");
+                String ans = input.next();
+                if ("Yes".equals(ans) || "Y".equals(ans) || "yes".equals(ans) || "y".equals(ans)){
+                    continue;
+                }
+                System.out.println("Have a nice day!");
+                break;
+             }}}
+    public static int getIndexOf(String[] my_list, String item) { //A generalized search to find the position of ANY list
+        for (int i = 0; i < my_list.length; i++) {
+            if (item.equals(my_list[i])) 
+                return i;
+        }
+        return -1;
+}}
