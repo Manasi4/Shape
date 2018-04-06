@@ -1,0 +1,44 @@
+
+package programming.exercises;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+ // @author Manasi
+public class ProgrammingExercises {
+    public static void main(String[] args) {
+        while (true){
+        Object[] options1 = { "Verify Number","Quit" };  //Creating the interface with 2 buttons
+
+        JPanel panel = new JPanel();                    //Creating textfield and taking user input
+        panel.add(new JLabel("Enter the integer:"));   
+        JTextField textField = new JTextField(10);
+        panel.add(textField);
+
+        int result = JOptionPane.showOptionDialog(null, panel, "Enter a Number",    //The Quit option
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                null, options1, null);
+ 
+        if (result == JOptionPane.YES_OPTION){
+            //add exception here 
+             try {
+                int x = Integer.parseInt(textField.getText());                         //Checking for exceptions 
+                JOptionPane.showMessageDialog(null, "Valid Input");
+                break;
+                }          
+             catch(NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, e);    //To show the exception before asking the user to enter the integer again
+                continue; }}
+       
+       else {
+               break;
+               }
+ } 
+    }
+}
+      
+      
+  
+
+
+
