@@ -3,23 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package advanced.programming;
+package programming.exercises;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 //@ author Manasi
+/**
+ *
+ * @author S346680274
+ */
 public class Files {
+    
    @SuppressWarnings("empty-statement")
    public static void main( String[] args ) throws IOException { 
        //create file
         File f1 = new File("Username.txt");
         f1.createNewFile();
-          try { 
           Scanner input= new Scanner(System.in);
           System.out.println("Enter your username:");
           String user = input.next();
@@ -27,29 +30,24 @@ public class Files {
          String line=br.readLine(); 
          while (null!=line){  //goes on till there is no file to read
              if (line.equals(user)){
-                 System.out.println("The username is already taken. Please try again.");
-                 
+                 //System.out.println("The username is already taken. Please try again."); 
+                         //break;
+                         //For some reason, the above statements are never printed hence they are not required.                  
              }
-         }  //if not found then it inputs the username
-                FileWriter fileWritter= new FileWriter(f1.getName(),true);
+             else{
+                 System.out.println("The username is already taken. Please try again.");
+                   System.exit(0);}                
+                 
+         } 
+         //if not found then it inputs the username
+             
+                   FileWriter fileWritter= new FileWriter(f1.getName(),true);
                 try (BufferedWriter bw = new BufferedWriter(fileWritter)) {
                     bw.write(user);  //to append and not override
                     System.out.println("Enter your password:");
                     String password = input.next();
                     bw.write(password);
-                    System.out.println("Done");                    
-             }
-          catch(IOException e){
-         }
-                  
-      }
-
-       catch (FileNotFoundException ex) {
-           
-       } catch (IOException ex) {
-       }
-          
-          
-   }
+                    System.out.println("Done"); 
    
-}
+   }}}
+        
